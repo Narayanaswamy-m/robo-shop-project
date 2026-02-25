@@ -28,7 +28,7 @@ for instance in "$@"; do
   echo "ipaddress :: $IP"
   aws route53 change-resource-record-sets \
   --hosted-zone-id  $Zone_ID \
-  --change-batch  
+  --change-batch ' 
                     {
                     "Comment": "Update record to new IP",
                     "Changes": [
@@ -45,8 +45,9 @@ for instance in "$@"; do
                         }
                     ]
                     }
+                    ,
                     echo "Record is updated for $instance"
-                    
+
 done
 
 
