@@ -35,11 +35,11 @@ for instance in "$@"; do
                         {
                         "Action": "UPSERT",
                         "ResourceRecordSet": {
-                            "Name": "$Record_Name",
+                            "Name": "'$Record_Name'",
                             "Type": "A",
                             "TTL": 1,
                             "ResourceRecords": [
-                            { "Value": "$IP" }
+                            { "Value": "'$IP'" }
                             ]
                         }
                         }
