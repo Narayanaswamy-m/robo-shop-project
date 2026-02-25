@@ -44,8 +44,7 @@ for instance in "$@"; do
                         }
                         }
                     ]
-                    }
-                    ,
+                    }'
                     echo "Record is updated for $instance"
 
 done
