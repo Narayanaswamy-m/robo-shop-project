@@ -15,13 +15,13 @@ for instance in "$@"; do
   if [ "$instance" == "frontend" ]; then
     IP=$(aws ec2 describe-instances \
       --instance-ids "$instance_id" \
-      --query "Reservations[*].Instances[*].PrivateIpAddress" \
+      --query "Reservations[*].Instances[*].PublicIpAddress" \
       --output text )
       Record_Name="$instance.$Domain_Name"
   else
     IP=$(aws ec2 describe-instances \
       --instance-ids "$instance_id" \
-      --query "Reservations[*].Instances[*].PublicIpAddress" \
+      --query "Reservations[*].Instances[*].PrivateIpAddress" \
       --output text )
       Record_Name="$instance.$Domain_Name"
   fi
@@ -48,6 +48,6 @@ for instance in "$@"; do
                     echo "Record is updated for $instance"
 
 done
-
+  
 
 
